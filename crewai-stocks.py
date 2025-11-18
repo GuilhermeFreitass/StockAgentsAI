@@ -32,7 +32,7 @@ yahoo_finance_tool = Tool(
 
 
 #IMPORTANDO OPENIA LLM-GPT
-os.environ['OPENAI_API_KEY']= st.secrets["OPENAI_API_KEY"]
+os.environ['OPENAI_API_KEY'] = st.secrets.get("OPENAI_API_KEY", "")
 llm = ChatOpenAI(model="llama-3.1-70b-versatile" , base_url="https://api.groq.com/openai/v1")
 
 
@@ -126,7 +126,7 @@ stockAnalystWriter = Agent(
     llm= llm,
     max_iter=5,
     memory=True,
-    alow_delegation=True
+    allow_delegation=True
 )
 
 
